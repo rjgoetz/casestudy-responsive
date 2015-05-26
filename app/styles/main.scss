@@ -1,31 +1,95 @@
-// bower:scss
-// endbower
+// main.scss
 
-body {
-  background: #fafafa;
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  color: #333;
+@import "mixins";
+@import "grid";
+
+// globals
+
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
 }
 
-.hero-unit {
-  margin: 50px auto 0 auto;
-  width: 300px;
-  font-size: 18px;
-  font-weight: 200;
-  line-height: 30px;
-  background-color: #eee;
-  border-radius: 6px;
-  padding: 60px;
-  h1 {
-    font-size: 60px;
-    line-height: 1;
-    letter-spacing: -1px;
+@font-face {
+  font-family: "SourceSansPro-ExtraLight";
+  src: url(../fonts/SourceSansPro-ExtraLight.otf);
+}
+
+body {
+  background: #BDCCD4;
+  font: 1em/1 "Helvetica", "Arial", sans-serif;
+  margin: 0;
+}
+
+img {
+  width: 100%;
+}
+
+.wrapper {
+  background: #fff;
+  padding: 2em 0;
+  max-width: 1024px;
+  margin: 0 auto;
+}
+
+@media screen and (min-width: 600px) {
+  .wrapper {
+    padding-right: 1.25em;
   }
 }
 
-.browserupgrade {
-  margin: 0.2em 0;
-  background: #ccc;
-  color: #000;
-  padding: 0.2em 0;
+// page-header
+
+.page-header h1 {
+  font: 3em/1 "SourceSansPro-ExtraLight";
+  margin: 0;
+  padding-bottom: 2rem;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+// main-content
+
+.main-content {
+  article {
+    margin-bottom: 1em;
+    h2 {
+      @include visuallyhidden;
+    }
+  }
+}
+
+
+@media screen and (min-width: 600px) {
+  .main-content {
+    div:nth-of-type(1) {
+      article {
+        @include col1-1;
+      }
+    }
+    div:nth-of-type(2) {
+      article {
+        @include col1-2;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .main-content {
+    div:nth-of-type(1) {
+      article {
+        @include col1-1;
+      }
+    }
+  }
+  .main-content {
+    div:nth-of-type(2) {
+      article {
+        @include col1-3;
+      }
+    }
+  }
 }
